@@ -60,6 +60,10 @@ public class Partita {
 	public void setFinita() {
 		this.finita = true;
 	}
+	
+	public Giocatore getGiocatore() {
+		return this.giocatore;
+	}
 
 	
 

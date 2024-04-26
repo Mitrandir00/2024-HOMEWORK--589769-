@@ -1,13 +1,14 @@
 package it.uniroma3.diadia.giocatore;
-import it.uniroma3.diadia.IOConsole.IOConsole;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
+import it.unirmo3.diadia.IO;
+import it.unirmo3.diadia.IOConsole;
 
 public class Giocatore {
 	static final private int CFU_INIZIALI = 20;
 	
 	public int cfu;
 	public Borsa borsa;
-	public IOConsole IO;
+	public IO IO;
 	
 	
 	//crea un giocatore e gli da i cfu
