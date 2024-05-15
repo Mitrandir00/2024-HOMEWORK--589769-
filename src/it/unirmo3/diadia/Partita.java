@@ -17,17 +17,16 @@ public class Partita {
 	public Stanza stanzaCorrente;
 	public boolean finita;
 	public Giocatore giocatore;
-	
 	public Labirinto labirinto;
 	
-	public Partita(){
-		this.labirinto = new Labirinto();
+	public Partita(Labirinto lab){
+		this.labirinto = lab;
 		this.stanzaCorrente=this.labirinto.getStanzaIniziale();
 		this.finita = false;
 		this.giocatore = new Giocatore();
 	}
 
-    
+
 
 	public void setStanzaCorrente(Stanza stanzaCorrente) {
 		this.stanzaCorrente = stanzaCorrente;

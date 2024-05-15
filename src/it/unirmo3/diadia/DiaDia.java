@@ -2,6 +2,8 @@ package it.unirmo3.diadia;
 
 
 
+import it.uniroma3.diadia.ambienti.Labirinto;
+import it.uniroma3.diadia.ambienti.LabirintoBuilder;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 import it.uniroma3.diadia.comandi.Comando;
 import it.uniroma3.diadia.comandi.FabbricaDiComandiFisarmonica;
@@ -30,14 +32,12 @@ public class DiaDia {
 			"o regalarli se pensi che possano ingraziarti qualcuno.\n\n"+
 			"Per conoscere le istruzioni usa il comando 'aiuto'.";
 	private Partita partita;
-
 	public Attrezzo attrezzo;
-
 	public IO io;
 
 
-	public DiaDia(IO io) {
-		this.partita = new Partita();
+	public DiaDia(IO io, Labirinto lab) {
+		this.partita = new Partita(lab);
 		this.io = io;
 
 	}
@@ -46,7 +46,6 @@ public class DiaDia {
 		String istruzione;
 		io.mostraMessaggio(MESSAGGIO_BENVENUTO);		
 		do		
-
 			istruzione = io.leggiRiga();
 		while (!processaIstruzione(istruzione));
 	}   
@@ -74,7 +73,15 @@ public class DiaDia {
 
 	public static void main(String[] argc) {
 		IO io = new IOConsole();
-		DiaDia gioco = new DiaDia(io);
+		Labirinto trilocale = new LabirintoBuilder()
+				.addStanzaIniziale("salotto")
+				.addStanza("cucina")
+				.addAttrezzo("pentola",1) 
+				.addStanzaVincente("camera")
+				.addAdiacenza("salotto", "cucina", "nord")
+				.addAdiacenza("cucina", "camera", "est")
+				.getLabirinto();
+		DiaDia gioco = new DiaDia(io, trilocale);
 		gioco.gioca(io);
 	}
 }

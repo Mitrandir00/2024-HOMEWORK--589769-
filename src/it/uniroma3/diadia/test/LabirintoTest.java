@@ -25,7 +25,7 @@ public class LabirintoTest {
 	public void testSetStanzaInizaile_giàFinito() {
 		Labirinto labirinto = new Labirinto();
 		Stanza stanza = new Stanza("stanza finale");
-		labirinto.stanzaVincente=stanza;
+		labirinto.setStanzaInizaile(stanza);
 		labirinto.setStanzaInizaile(stanza);
 	}
 

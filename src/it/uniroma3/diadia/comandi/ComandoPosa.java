@@ -23,7 +23,7 @@ public class ComandoPosa implements Comando {
 		}
 		else {
 			Attrezzo attrezzo = partita.giocatore.borsa.getAttrezzo(oggetto);
-			partita.giocatore.borsa.removeAttrezzo(oggetto);
+			partita.giocatore.borsa.removeAttrezzo(this.oggetto);
 			partita.stanzaCorrente.addAttrezzo(attrezzo);
 			io.mostraMessaggio("Hai lasciato "+oggetto);
 		}

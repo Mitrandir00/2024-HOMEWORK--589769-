@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import it.unirmo3.diadia.IOConsole;
 import it.unirmo3.diadia.Partita;
+import it.uniroma3.diadia.ambienti.Labirinto;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 import it.uniroma3.diadia.comandi.ComandoPosa;
 
@@ -11,7 +12,8 @@ public class ComandoPosaTest {
 
 	@Test
 	public void testEsegui_null() {
-		Partita partita = new Partita();
+		Labirinto lab = new Labirinto();
+		Partita partita = new Partita(lab);
 		IOConsole io = new IOConsole();
 		ComandoPosa comando = new ComandoPosa("gino");
 		comando.esegui(partita, io);
@@ -19,7 +21,8 @@ public class ComandoPosaTest {
 	
 	@Test
 	public void testEsegui_Presente() {
-		Partita partita = new Partita();
+		Labirinto lab = new Labirinto();
+		Partita partita = new Partita(lab);
 		IOConsole io = new IOConsole();
 		ComandoPosa posa = new ComandoPosa("osso");
 		Attrezzo osso = new Attrezzo("osso", 3);
@@ -29,7 +32,8 @@ public class ComandoPosaTest {
 	
 	@Test
 	public void testEsegui_assente() {
-		Partita partita = new Partita();
+		Labirinto lab = new Labirinto();
+		Partita partita = new Partita(lab);
 		IOConsole io = new IOConsole();
 		ComandoPosa posa = new ComandoPosa("palo");
 		Attrezzo osso = new Attrezzo("osso", 3);
